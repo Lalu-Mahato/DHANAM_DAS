@@ -75,12 +75,11 @@ class CommonMethods {
         };
     }
 
-    static generateId() {
-        const random = Math.floor(Math.random() * 1000);
-        const milliseconds = random.toString().padStart(3, '0');
-
-        const stringId = moment().format('YYYYMMDDhmmSSS') + milliseconds;
-        return parseInt(stringId, 10);
+    static generateId(cnt) {
+        const timestamp = moment().format('YYYYMMDDhhmm');
+        const counter = cnt.toString().padStart(6, '0');
+        const stringId = timestamp + counter;
+        return stringId;
     }
 }
 
